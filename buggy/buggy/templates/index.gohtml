@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Buggy Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="templates/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li style="float: left"><a class="title" href="/">Buggy Store</a></li>
+            {{if .Auth}}
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {{else}}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            {{end}}
+        </ul>
+    </div>
+    <h1 class="rainbow" style="padding:5px;text-align:center;font-size:70px">Buggy Store</h1>
+    <div class="products">
+        <a href="super-buggy">
+        <div class="card green">
+            <img src="../img/buggy.png" style="width: 100%;">
+            <div class="buggy">
+                <h4 id="name">Super Buggy</h4>
+                <h5 id="name">Such awesome!</h5>
+            </div>
+        </div>
+        </a>
+        <a href="mega-buggy">
+        <div class="card blue">
+            <img src="../img/buggy.png" style="width: 100%;">
+            <div class="buggy">
+                <h4 id="name">Mega Buggy</h4>
+                <h5 id="name">Such awesome!</h5>
+            </div>
+        </div>
+        </a>
+        <div id="overlay">
+            <a id="overlay-text">Coming soon!</a>
+            <div class="card red disabled">
+                <img src="../img/buggy.png" style="width: 100%;">
+                <div class="buggy">
+                    <h4 id="name">Hyper Buggy</h4>
+                    <h5 id="name">Such awesome!</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

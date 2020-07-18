@@ -1,0 +1,29 @@
+version: '3'
+services:
+  ldapserver:
+    hostname: "ldapserver"
+    build:
+      context: ldapserver
+      dockerfile: Dockerfile
+    restart: "always"
+    volumes:
+      - ./ldapserver/ldap:/var/lib/ldap
+      - ./ldapserver/slapd.d:/etc/ldap/slapd.d
+  flask:
+    build:
+      context: app
+      dockerfile: Dockerfile
+    depends_on:
+      - ldapserver
+    ports:
+      - "7787:8000"
+    volumes:
+      - "./app/keys:/keys"
+    restart: "always"
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    restart: "always"

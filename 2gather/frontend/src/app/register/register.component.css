@@ -1,0 +1,13 @@
+.register-heading {
+  text-align: center;
+  font-family: LUOV;
+  font-size:24px;
+}
+
+input {
+  font-family: LUOV;
+}
+
+input.mat-select-placeholder {
+  font-family: LUOV;
+}

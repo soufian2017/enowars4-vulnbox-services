@@ -1,0 +1,49 @@
+<div class="search" fxLayout="row" fxLayoutAlign="center center">
+  <div fxLayout="row" fxLayoutAlign="center start">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <mat-card fxLayoutGap="10px" fxLayout="row" fxLayoutAlign="center center">
+        <mat-form-field>
+          <mat-label>Attribute</mat-label>
+          <mat-select [(ngModel)]="searchAttribute">
+            <mat-option value="givenName">First Name</mat-option>
+            <mat-option value="sn">Surname</mat-option>
+            <mat-option value="departmentNumber">Department Number</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Query</mat-label>
+          <input
+            matInput
+            placeholder="Which query?"
+            [(ngModel)]="searchQuery"
+          >
+        </mat-form-field>
+        <button mat-raised-button class="button-custom" (click)="onSubmit()">Search</button>
+      </mat-card>
+
+      <mat-list role="list" fxFlexOffset="5">
+        <mat-list-item
+          role="listitem"
+          *ngFor="let result of searchResults$"
+          style="margin-top: 4px;"
+        >
+          <mat-card  class=showhim>{{result.username.substring(0,25)}}
+            <mat-card-footer class=showme>{{result.username}}</mat-card-footer>
+          </mat-card>
+          <mat-card  class=showhim>{{result.givenName.substring(0,25)}}
+            <mat-card-footer class=showme>{{result.givenName}}</mat-card-footer>
+          </mat-card>
+          <mat-card  class=showhim>{{result.sn.substring(0,25)}}
+            <mat-card-footer class=showme >{{result.sn}}</mat-card-footer>
+          </mat-card>
+          <mat-card  class=showhim>{{result.homePostalAddress.substring(0,25)}}
+            <mat-card-footer class=showme>{{result.homePostalAddress}}</mat-card-footer>
+          </mat-card>
+          <mat-card  class=showhim>{{result.sshPublicKey.substring(0,25)}}
+            <mat-card-footer class=showme>{{result.sshPublicKey}}</mat-card-footer>
+          </mat-card>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+TEMPLATE(
+<body>
+    <h1>Your friendly towel dispenser.</h1>
+    <div id="token">
+        <form id="towelreserver" method="get" action="poolcide">
+        <p>Reserve a towel now!</p>
+        <div id="towelreg">
+        <label for="color">Chose a color:</label>
+        <input type="hidden" id="route" name="route" value="reserve" />
+        <input type="hidden" id="csrf" name="csrf" value="{{csrf%s}}" />
+        <select name="color" id="color">
+            <option value="🚩">🚩</option>
+            <option value="🏁">🏁</option>
+            <option value="🏳️">🏳️</option>
+            <option value="🏳️‍🌈">🏳️‍🌈</option>
+            <option value="🏳️‍⚧️">🏳️‍⚧️</option>
+            <option value="🦄">️🦄</option>
+            <option value="🏴‍☠️">🏴‍☠️</option>
+        </select>
+        <button id="reserve">Reserve a poolcide spot and towel!</button>
+        </div>
+        </form>
+    </div>
+
+    <div id="owntowels">
+        <p>Your towels:</p>
+        <div class="toweldiv">
+        <ul>
+        {{own_towels%s}}
+        </ul>
+        </div>
+    </div>
+
+    <div id="alltowels">
+        <p>All towels:</p>
+        <div class=toweldiv>
+        <ul>
+        {{towels%s}}
+        </ul>
+        </div>
+    </div>
+
+    <div id=towelid>
+    <p>Also, the towel questionnaire for our lifeguard team is </p>
+    <div>
+        <code>{{admin_challenge_enc%s}}</code>
+    </div>
+    <p> today.</p>
+    <code id="chosencolor">{{color%s}}</code>
+    <p>BTW.: please make sure poolcide is right to the pool pool (not, for example, behind a http proxy or beach hut)</p>
+    </div>
+    <a href=/>HOME</a>
+
+<script nonce={{NONCE%s}}>
+    if ("{{towel_token%s}}") {
+        token.innerHTML = `<p>Your towel with the ID {{towel_token%s}} and color ${decodeURI(chosencolor.innerHTML)} got reserved.</p>
+        <a href="poolcide/?route=dispense">RESERVE ADDITIONAL TOWELS</a>
+        `
+    }
+    chosencolor.innerHTML = ""
+
+    if ({{(!admin_challenge_enc[0])%d}}) {
+        towelid.innerHTML = ""
+    }
+    if ({{(!own_towels[0])%d}}) {
+        owntowels.innerHTML = ""
+    }
+</script>
+</body>
+)

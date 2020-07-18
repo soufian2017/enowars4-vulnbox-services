@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Buggy Store | Super Buggy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="templates/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li style="float: left"><a class="title" href="/">Buggy Store</a></li>
+            {{if .Account.Auth}}
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            {{else}}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            {{end}}
+        </ul>
+    </div>
+    <div class="product">
+        <img  style="float:left" src="../img/buggy.png">
+        <div  style="float:right; text-align: right" class="title">
+            <h1>Super Buggy</h1>
+            <p class="price">2 ENOCOIN</p>
+            {{if .Account.Auth}}
+                <form method="POST" id="preorder">
+                    <p>Choose a color:</p>
+                    <div class="color-picker">
+                        <label class="radio" id="cyber-cyan">
+                            <input type="radio" name="color" value="cyber-cyan">Cyber-Cyan
+                        </label>
+                        <label class="radio" id="terminal-turquoise">
+                            <input type="radio" name="color" value="terminal-turquoise">Terminal-Turquoise
+                        </label>
+                        <label class="radio" id="buggy-blue">
+                            <input type="radio" name="color" value="buggy-blue" checked>Buggy-Blue
+                        </label>
+                    </div>
+                    <label for="quantity">Quantity: </label>
+                    <input type="number" id="quantity" name="quantity" min="1" max="99">
+                    <button type="submit" class="preorder" title="Available soon(tm)" form="preorder">Preorder</button>
+                </form>
+            {{else}}
+                <p>Choose a color:</p>
+                <div class="color-picker">
+                    <label class="radio" id="cyber-cyan">
+                        <input type="radio" name="color">Cyber-Cyan
+                    </label>
+                    <label class="radio" id="terminal-turquoise">
+                        <input type="radio" name="color">Terminal-Turquoise
+                    </label>
+                    <label class="radio" id="buggy-blue">
+                        <input type="radio" name="color" checked>Buggy-Blue
+                    </label>
+                </div>
+                <button type="submit" class="preorder" title="Available soon(tm)" disabled>Preorder</button>
+            {{end}}
+        </div>
+        <div style="clear:both;display:block"></div>
+        <ul>
+        <li><b>Lightning fast:</b> 60km/h Top Speed!</li>
+        <li><b>Versatile:</b> Ride on dunes, the beach or in the desert!</li>
+        </ul>
+        <h2>Comments</h2>
+        {{if .Account.Auth}}
+            <form method="POST" id="comments">
+                <textarea name="comment" form="comments" placeholder="Leave a comment"></textarea>
+                <button type="submit" class="btn-comment">Submit</button>
+            </form>
+        {{end}}
+        <ul class="comments">
+            {{range .Comments}}
+                <li class="comment">
+                    <div class="cmnt-content"><p>{{.Timestamp}}</p></div>
+                    <div class="commenter"><h3>{{.User}}</h3></div>
+                    <div class="cmnt-content"><p>{{.Content}}</p></div>
+                </li>
+            {{end}}
+        </ul>
+    </div>
+</body>
+</html>
+

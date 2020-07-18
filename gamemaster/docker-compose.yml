@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  gamemaster:
+    build:
+      context: Gamemaster
+      dockerfile: Dockerfile
+    environment:
+      - DATABASE_DOMAIN=postgres
+    ports:
+      - "8001:80"
+  postgres:
+    image: postgres
+    volumes:
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./postgres-data:/var/lib/postgresql/data
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf  
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+    shm_size: 256MB

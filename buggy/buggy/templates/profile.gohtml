@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Buggy Store | Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="templates/style.css">
+</head>
+<body>
+<div style="text-align:center">
+    <div class="nav">
+        <ul>
+            <li style="float: left"><a class="title" href="/">Buggy Store</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    <div class="profile">
+        <h1>Profile</h1>
+
+        <h3>Username: {{ .User.Username }}</h3>
+        <h3>Status: {{ .User.Status }}</h3>
+        <h3>Update Status:</h3>
+        <form method="POST" id="status">
+            <textarea name="status" form="status" placeholder="Set a new status"></textarea>
+            <button type="submit" class="btn-comment">Submit</button>
+        </form>
+
+        <h2>Bonus</h2>
+        <h3>You currently have {{.User.Bonus}} Buggy Bonus Points.</h3>
+
+        <h2>Orders</h2>
+        <h3>Your orders: ({{len .Orders }})</h3>
+        <ul>
+        {{ range .Orders }}
+            <li>
+                <a href="/orders/{{.Hash}}">Order</a>
+            </li>
+        {{ end }}
+        </ul>
+
+        <h2>Contact</h2>
+        <h3>Do you have any questions or feedback? Write a <a href="/tickets">Ticket</a>.</h3><br/><br/>
+        <h3>Your Tickets: ({{len .Tickets }})</h3>
+        <ul>
+        {{ range .Tickets }}
+            <li>
+                <a href="/tickets/{{.Hash}}">{{.Subject}}</a>
+            </li>
+        {{ end }}
+        </ul>
+
+        <h2>Inbox</h2>
+        <div class="header">
+            <div class="from"><h3>From</h3></div><div class="content"><h3>Message</h3></div>
+        </div>
+        <ul class="messages">
+            {{range .Messages}}
+                <li class="message">
+                    <div class="from"><p>{{.From}}</p></div><div class="content"><p>{{.Content}}</p></div>
+                </li>
+            {{end}}
+        </ul>
+    </div>
+</div>
+</body>
+</html>

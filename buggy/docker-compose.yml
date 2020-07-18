@@ -1,0 +1,24 @@
+version: '3'
+services:
+  mysql:
+    build: ./mysql
+    environment:
+      - MYSQL_DATABASE=enodb
+      - MYSQL_ROOT_PASSWORD=root
+    command: --default-authentication-plugin=mysql_native_password --sql_mode=""
+    volumes:
+      - data:/var/lib/mysql
+    restart: "always"
+  buggy:
+    build: .
+    ports:
+      - "7890:7890"
+    environment:
+      - MYSQL_DATABASE=enodb
+      - MYSQL_ROOT_PASSWORD=root
+    restart: "always"
+    depends_on:
+      - mysql
+
+volumes:
+  data:

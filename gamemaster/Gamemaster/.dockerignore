@@ -1,0 +1,7 @@
+bin
+obj
+wwwroot
+node_modules
+*.db
+Dockerfile
+.dockerignore

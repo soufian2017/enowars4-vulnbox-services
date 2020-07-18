@@ -1,0 +1,7 @@
+FROM postgres
+ENV POSTGRES_USER=docker
+ENV POSTGRES_PASSWORD=docker
+ENV POSTGRES_DB=docker
+EXPOSE 55554
+COPY postgresql.conf /etc/postgresql/postgresql.conf
+COPY initdb.sh /docker-entrypoint-initdb.d/initdb.sh

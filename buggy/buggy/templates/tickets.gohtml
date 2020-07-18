@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Buggy Store | View Ticket</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../templates/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li style="float: left"><a class="title" href="/">Buggy Store</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    <div class="ticket">
+        <h1>Ticket</h1>
+        <h2 style="font-weight:normal"><i>{{.Ticket.Subject}}</i></h2> 
+        <ul class="messages">
+            {{range .Account.Messages}}
+                <li class="message">
+                    <div class="from"><p>{{.From}}</p></div><div class="content"><p>{{.Content}}</p></div>
+                </li>
+            {{end}}
+        </ul>
+    </div>
+</body>
+</html>

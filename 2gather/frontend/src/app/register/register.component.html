@@ -1,0 +1,85 @@
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <div>
+    <h1>Join Luov now!</h1>
+    <ul>
+      <li><h2>Don't spend you vacation alone</h2></li>
+      <li><h2>If you like Pina Colada</h2></li>
+      <li><h2>And do some coding in the rain</h2></li>
+      <li><h2>If you're not into yoga </h2></li>
+      <li><h2>If you have half a brain</h2></li>
+      <li><h1>Find real Luov</h1></li>
+    </ul>
+  </div>
+  <div fxLayout="column" fxLayoutAlign="start center">
+  <mat-card fxLayout="column">
+    <h4 class="register-heading">Register</h4>
+    <div fxLayout="column">
+      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center" >
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input
+            placeholder="Username"
+            matInput
+            [(ngModel)]="user"
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Firstname</mat-label>
+          <input
+            placeholder="Firstname"
+            matInput
+            [(ngModel)]="firstname"
+          >
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center" >
+        <mat-form-field appearance="outline">
+          <mat-label>Surname</mat-label>
+          <input
+            placeholder="Surname"
+            matInput
+            [(ngModel)]="surname"
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            placeholder="Password"
+            matInput
+            [(ngModel)]="pass"
+          >
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start center" >
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <input
+            placeholder="Street City"
+            matInput
+            [(ngModel)]="address"
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input
+            placeholder="Phone Number"
+            matInput
+            [(ngModel)]="phone"
+          >
+        </mat-form-field>
+      </div>
+      <div fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="center center" >
+        <mat-form-field>
+          <mat-label>Floor</mat-label>
+          <mat-select [(ngModel)]="department">
+            <mat-option value="floor1">First floor</mat-option>
+            <mat-option value="floor2">Second floor</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </div>
+    <button mat-raised-button class="button-custom" (click)="onRegister()">Register</button>
+  </mat-card>
+</div>
+</div>

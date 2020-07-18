@@ -1,0 +1,10 @@
+flask
+flask-login
+flask-wtf
+Werkzeug
+bonsai
+cryptography
+flask_cors
+flask_jwt
+flask_api
+gunicorn[eventlet]

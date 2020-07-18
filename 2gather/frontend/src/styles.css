@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: LUOV, serif;
+  background-color: #add8e6;
+  background-image: url("./assets/heart.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 40%;
+  /*background-image: linear-gradient(to bottom right, #0198a0, #00baa0);
+  background-color: #00baa0;*/
+}
+
+.mat-card {
+  background-color: #ffdf93;
+  color: black;
+  opacity: 0.9;
+}
+
+.button-custom {
+  color: black;
+  background-color: #fc9e00;
+}
+
+.mat-option {
+  background-color: #ffd76d;
+}
+
+.mat-select-panel {
+  background-color: #ffd76d;
+}
+
+.mat-primary {
+  color: #434343;
+}
+
+.mat-option-text {
+  color: #434343;
+}
+
+.mat-input-element {
+  color: #434343;
+}

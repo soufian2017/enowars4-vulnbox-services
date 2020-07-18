@@ -1,0 +1,31 @@
+<mat-toolbar class="mat-head-custom">
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+
+    <button class="nav-button" mat-button routerLink="/" routerLinkActive="active">
+      <img src="/assets/heart-logo2.png" width="50" height="50" alt="submit" />
+    </button>
+
+    <button *ngIf="false"  class="nav-button wall-of-luov" mat-icon-button aria-label="wall-of-luov" routerLink="/wall-of-luov" routerLinkActive="active">
+      Wall of Luov
+    </button>
+
+    <div fxLayout="row" class="button-align" fxLayoutAlign="space-evenly">
+      <button class="nav-button" mat-icon-button aria-label="search" routerLink="/search" routerLinkActive="active">
+        Search
+      </button>
+
+      <button *ngIf="(login$ | async)" class="nav-button" mat-icon-button aria-label="logout" routerLink="/" routerLinkActive="active" (click)="logout()">
+        Logout
+      </button>
+
+      <button *ngIf="!(login$ | async)" class="nav-button" mat-icon-button aria-label="register" routerLink="/register" routerLinkActive="active">
+        Register
+      </button>
+
+      <button *ngIf="!(login$ | async)" style="margin-right: -15px" class="nav-button" mat-icon-button aria-label="login" routerLink="/login" routerLinkActive="active">
+        Login
+      </button>
+
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

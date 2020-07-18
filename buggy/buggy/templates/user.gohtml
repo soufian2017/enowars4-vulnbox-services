@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Buggy Store | View User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../templates/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li style="float: left"><a class="title" href="/">Buggy Store</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    {{ if (gt (len .User) 0) }}
+        {{ range .User }}
+        <div class="ticket">
+            <h1>User (ID) {{ .ID }}</h1>
+            <h3>Buggy Bonus Points: {{ .Bonus }}</h3>
+            <h3>Status: {{ .Status }}</h3>
+        </div>
+        {{ end }}
+    {{ else }}
+        <h1>You are not allowed to view this user</h1>
+    {{ end }}
+</body>
+</html>

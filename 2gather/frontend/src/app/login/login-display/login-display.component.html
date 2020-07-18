@@ -1,0 +1,33 @@
+<div fxLayout="column" fxLayoutAlign="start stretch">
+  <div class="hey">
+    <h1>Hey {{ user.token['givenName'] }}!</h1>
+  </div>
+  <div class="hey">
+    <h2>Nice to have you back buddy. Check out your personal info you will need it to communicate. After all this is a community, you know?</h2>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center" >
+      <mat-accordion>
+        <mat-card>Department Number: {{ user.token['departmentNumber'] }}</mat-card>
+        <mat-card>First Name: {{ user.token['givenName'] }}</mat-card>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              User Address
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p style="word-wrap: break-word; width: 90vw;" class='address'>Address: <br>{{ user.token['homePostalAddress'] }}</p>
+        </mat-expansion-panel>
+        <mat-card>Surname: {{ user.token['sn'] }}</mat-card>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              You Public Key
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <p style="word-wrap: break-word; width: 90vw;">{{ user.token['sshPublicKey'] }}</p>
+        </mat-expansion-panel>
+        <mat-card *ngIf="user.token['telephoneNumber']">Phone: {{ user.token['telephoneNumber'] }}</mat-card>
+      </mat-accordion>
+  </div>
+</div>
+

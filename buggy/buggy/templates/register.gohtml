@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Buggy Store | Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="templates/style.css">
+</head>
+<body>
+<div style="text-align:center">
+    <div class="nav">
+        <ul>
+            <li style="float: left"><a class="title" href="/">Buggy Store</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        </ul>
+    </div>
+    <form method="POST">
+        <h1>Register</h1>
+        <p>Please fill in this form to create an account.</p>
+        <br/>
+
+        <label><b>Username</b></label><br/>
+        <input type="text" name="username" pattern="[0-9a-zA-Z]{5,50}" required><br/>
+
+        <label><b>Password</b></label><br/>
+        <input type="password" name="pw" pattern="[0-9a-zA-Z]{5,50}" required><br/>
+
+        <button type="submit" class="">Register</button>
+    </form>
+    {{if .Error}}
+        <h3 style="color: red">An error occured! Please try again.</h3>
+    {{else if .Duplicate}}
+        <h3 style="color:orange">User already exists!</h3>
+    {{end}}
+</div>
+</body>
+</html>
+

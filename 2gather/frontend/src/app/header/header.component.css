@@ -1,0 +1,41 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.nav-button {
+  font-size: 28px;
+  font-family: LUOV;
+  font-weight: bold;
+}
+
+.nav-logo {
+
+}
+.mat-head-custom {
+  background-color: #0198a0;
+  color: whitesmoke;
+  box-shadow: 0 2px 10px 0 whitesmoke;
+  margin-bottom: 10px;
+}
+
+.button-align {
+  width:30%;
+  color:#fc9e00;
+}
+
+h1 {
+  font-family: LUOV;
+  font-size: 32px;
+}
+
+.wall-of-luov {
+  color:#fc9e00;
+  margin-right: -200px;
+  font-size: 28px;
+  font-family: LUOV;
+  font-weight: bold;
+}

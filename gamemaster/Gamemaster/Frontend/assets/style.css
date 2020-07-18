@@ -1,0 +1,19 @@
+/*@import url('grid_12-825-55-15.css'); */
+:root {
+    --fg-red: #ee4961;
+    --fg-yellow: #ffda7d;
+    --fg-orange: #fc9f00;
+    --bg-light: #9de6d3;
+    --bg-green: #00baa0;
+    --bg-blue: #0198a0;
+    --bg-dark: #434343;
+}
+
+
+html, body {
+    margin: 0;
+    height: 100%;
+    background-color: var(--bg-dark);
+    color: var(--fg-yellow);
+}
+

@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  ofelia:
+    image: mcuadros/ofelia:latest
+    depends_on:
+      - database
+    command: daemon --docker
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      ofelia.job-run.db-cron.schedule: "@every 5m"
+      ofelia.job-run.db-cron.network: "table-reservation_service_default"
+      ofelia.job-run.db-cron.image: "jbergknoff/postgresql-client"
+      ofelia.job-run.db-cron.command: -v ON_ERROR_STOP=1 postgresql://docker:docker@database:55554/docker -c "DELETE FROM reservations WHERE timestamp < (NOW() - INTERVAL '20 MINUTE')"
+  database:
+    image: postgres
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    restart: "no"
+    volumes:
+      - ./data:/var/lib/postgresql/data
+    command: -p 55554
+  service:
+    depends_on:
+      - "database"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: "no"
+    ports:
+    - 55555:55555

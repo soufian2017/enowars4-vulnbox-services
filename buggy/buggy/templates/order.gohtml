@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Buggy Store | View Order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../templates/style.css">
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li style="float: left"><a class="title" href="/">Buggy Store</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    <div class="ticket">
+        <h1>Order Summary (#{{.Order.ID}})</h1>
+        <h3>User:     {{.Order.Username}}</h3> 
+        <h3>ItemID:   {{.Order.ItemID}}</h3>
+        <h3>Color:    {{.Order.Color}}</h3>
+        <h3>Quantity: {{.Order.Quantity}}</h3>
+        <h3>Expected Delivery: tbd</h3>
+    </div>
+</body>
+</html>

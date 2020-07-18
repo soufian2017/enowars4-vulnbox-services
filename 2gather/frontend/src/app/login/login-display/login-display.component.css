@@ -1,0 +1,19 @@
+mat-card {
+  margin-bottom: 10px;
+}
+
+mat-expansion-panel {
+  margin-bottom: 10px;
+  background-color: #ffdf93;
+}
+
+.blur {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
+.hey {
+  padding-left: 50px;
+  max-width: 25vw;
+}
+

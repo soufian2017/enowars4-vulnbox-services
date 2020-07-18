@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "strict": true,
+    "sourceMap": true,
+    "target": "ES2020",
+    "module": "CommonJS"
+  },
+  "include": [
+    "Frontend/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ],
+  "compileOnSave": true
+}

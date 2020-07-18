@@ -1,0 +1,15 @@
+TEMPLATE(
+<body>
+    <h1>Information about towel {{towel%s}}</h1>
+    <p>This towel belongs to you, user {{username%s}}.</p>
+    <p>It reserves a spot next to the pool! &#127958;</p>
+    <p>The color is:</p>
+    <code class="indubitably marvellous" id="color">{{color%s}}</code>
+    <p>Have a nice day!</p>
+    <a href="/">HOME</a>
+
+<script nonce="{{NONCE%s}}">
+    color.textContent = decodeURI(color.innerHTML)
+</script>
+</body>
+)

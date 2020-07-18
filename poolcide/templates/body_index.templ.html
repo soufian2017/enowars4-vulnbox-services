@@ -1,0 +1,68 @@
+TEMPLATE(
+
+  <body>
+  <h1>Hello {{username%s}}</h1>
+
+  <p>Welcome at the Poolcide. Sit down and relax. Also get yourself a towel.</p>
+  <p>With a towel id, you can reserve a seat at the pool.</p>
+  <p>"More importantly, a towel has immense psychological value."</p>
+
+  <div id="errormsg"></div>
+
+  <div id="userform">
+    <ul> 
+    <li>
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" />
+    </li>
+    <li>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" />
+    </li>
+    <input type="hidden" id="csrf" name="csrf" value="{{csrf%s}}" />
+    </ul>
+    <button id="register">register</button>
+    <button id="login">login</button>
+  </div>
+
+  <code id=pyramid></code>
+
+<script nonce="{{NONCE%s}}">
+
+  // Some lovely codegolf from https://twitter.com/aemkei/status/1275169003028336646?s=20
+  for(o=i=2020;i--;)o+=i%63?i&i/32&&'_':`
+`
+  pyramid.innerHTML = o.replace(/\n/g, "<br>")
+
+  async function send(route) {
+    route = "poolcide?route=" + route
+    console.log("Sending to", route)
+    let response = await fetch(route, {
+      method: 'POST',
+      body: `username=${username.value}&password=${password.value}&csrf=${csrf.value}
+      `
+    });
+    let resptext = await response.text()
+    console.log(response, resptext);
+    if (resptext && resptext.includes("success")) {
+      location.reload() 
+    } else {
+      errormsg.innerHTML = resptext
+    }
+  }
+
+  login.onclick = () => send("login")
+  register.onclick = () => send("register")
+
+  if ({{logged_in%d}}) {
+    userform.innerHTML = `
+    <p>Welcome back! :)</p>
+    <a href="poolcide/?route=dispense">To The Towel Dispensery</a>
+    `;
+  }
+
+</script>
+
+</body>
+
+)

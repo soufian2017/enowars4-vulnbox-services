@@ -1,0 +1,9 @@
+.about-main-container {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.text {
+  max-width: 25vw;
+  font-size: 24px;
+}
